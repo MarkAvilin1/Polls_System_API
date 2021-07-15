@@ -1,6 +1,8 @@
 from django.db import models
 
-# Create your models here.
+# Create models.
+
+################### Опросы ###################
 class Polls(models.Model):
     poll_title = models.CharField(max_length=200)
     start_time = models.DateTimeField()
@@ -13,7 +15,7 @@ class Polls(models.Model):
     class Meta:
         ordering = ('id',)
 
-
+############### Вопросы ###############
 class Questions(models.Model):
     poll = models.ForeignKey(Polls, related_name='questions', on_delete=models.CASCADE)
     question_text = models.CharField(max_length=400)
@@ -26,6 +28,7 @@ class Questions(models.Model):
         ordering = ('id',)
 
 
+############### Выбрать Ответ ###############
 class Choices(models.Model):
     question = models.ForeignKey(Questions, related_name='choices', on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
@@ -37,6 +40,7 @@ class Choices(models.Model):
         ordering = ('id',)
 
 
+############### Ответы ###############
 class Answers(models.Model):
     user_id = models.IntegerField()
     poll = models.ForeignKey(Polls, related_name='poll', on_delete=models.CASCADE)

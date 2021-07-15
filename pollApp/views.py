@@ -14,16 +14,10 @@ from pollApp.models import *
 def poll_create(request):
     if request.method == 'GET':
         polls = Polls.objects.all()
-
         poll_title = request.GET.get('poll_title', None)
         start_time = request.GET.get('start_time', None)
         end_time = request.GET.get('end_time', None)
         description = request.GET.get('description', None)
-
-        # poll_title = request.data.get('poll_title')
-        # start_time = request.data.get('start_time')
-        # end_time = request.data.get('end_time')
-        # description = request.data.get('description')
         all_data = [poll_title, start_time, end_time, description]
         if all(all_data):
             polls = polls.filter(name_icontains=all_data)
@@ -62,12 +56,8 @@ def poll_update(request, pk):
 def question_create(request):
     if request.method == 'GET':
         questions = Questions.objects.all()
-
         question_text = request.GET.get('question_text', None)
         question_type = request.GET.get('question_type', None)
-
-        # question_text = request.data.get(questions.question_text)
-        # question_type = request.data.get(questions.question_type)
         all_data = [question_text, question_type]
         if all(all_data):
             questions = questions.filter(name_icontains=all_data)
@@ -106,10 +96,7 @@ def question_update(request, pk):
 def choice_create(request):
     if request.method == 'GET':
         choices = Choices.objects.all()
-
         choice_text = request.GET.get('choice_text', None)
-
-        # choice_text = request.data.get(choices.choice_text)
         if choice_text is not None:
             choices = choices.filter(name_icontains=choice_text)
             choices_serializer = ChoicesSerializer(choices, many=True)
@@ -147,12 +134,8 @@ def choice_update(request, pk):
 def answer_create(request):
     if request.method == 'GET':
         answers = Answers.objects.all()
-
         user_id = request.GET.get('user_id', None)
         choice_text = request.GET.get('choice_text', None)
-
-        # user_id = request.data.get(answers.user_id)
-        # choice_text = request.data.get(answers.choice_text)
         all_data = [user_id, choice_text]
         if all(all_data):
             answers = answers.filter(name_icontains=all_data)

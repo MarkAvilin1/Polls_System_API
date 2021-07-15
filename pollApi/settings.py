@@ -86,7 +86,7 @@ DATABASES = {
     }
 }
 
-######### For Postgres
+######### For Postgres############
         # 'ENGINE': 'django.db.backends.postgresql',
         # 'NAME': 'polls_db',
         # 'USER': 'postgres',
