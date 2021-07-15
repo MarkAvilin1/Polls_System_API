@@ -14,10 +14,10 @@
 ### Polls / Questions / Choices / Answers
 #To view all Polls / Questions / Choices / Answers
 * Request method: GET
-* URL: http://localhost:8000/api/pc/ ...for polls
-                             *  qc/ ...for questions
-                             *  chc/ ...for choices
-                             *  ac/ ...for answers
+* URL: http://localhost:8000/api/pc/ ...for polls \n
+                                 qc/ ...for questions \n
+                                 chc/ ...for choices \n
+                                 ac/ ...for answers \n
 
 #To create new Polls / Questions / Choices / Answers
 * Request method: POST
